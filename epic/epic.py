@@ -2862,18 +2862,18 @@ class EPiCDatabase:
     database = {}
 
     def __init__(self, local_directory=None):
-        self.component_type = 'MEG database test'
+        self.component_type = 'EPiCDatabase'
         self.custom_database = None
 
         if not self.database:
             if local_directory:
-                with open(local_directory + os.sep + r'your_pickle_file' + os.sep + PICKLE_DB, 'rb') as f:
+                with open(local_directory + os.sep + r'EPiC Grasshopper' + os.sep + PICKLE_DB, 'rb') as f:
                     self.database = cPickle.load(f)
 
         # Load set of categories in the database
 
-        self.categories = MEG database test.get_categories(self.database)
-        self.dict_of_categories = MEG database test.get_dict_of_categories(self.database)
+        self.categories =EPiCDatabase.get_categories(self.database)
+        self.dict_of_categories = EPiCDatabase.get_dict_of_categories(self.database)
         self.dict_of_ids_and_names = {key: self.database[key]['name'] for key in self.database.keys()}
         self.dict_of_legacy_names = {key: self.database[key]['Legacy_names'] for key in self.database.keys()}
 
